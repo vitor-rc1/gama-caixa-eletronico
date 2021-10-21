@@ -10,13 +10,11 @@ namespace Administrativo.Repositories
 {
     public class Repository : IRepository<Saque>
     {
-        private List<Saque> saques = new List<Saque> { 
-            new Saque() {Valor = 500}
-        };
+        private List<Saque> saques = new List<Saque>();
 
         public List<Saque> Extrato(Guid Id)
         {
-            return saques;
+            return saques.Where(saque => saque.Cliente.Id == Id).ToList() ;
         }
 
         public Saque Sacar(Saque saque)

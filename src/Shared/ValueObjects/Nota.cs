@@ -10,5 +10,10 @@ namespace Shared.ValueObjects
     {
         public int Valor { get; set; }
         public int Quantidade { get; set; }
+
+        public override string ToString()
+        {
+            return Valor + " " + Quantidade;
+        }
     }
 }

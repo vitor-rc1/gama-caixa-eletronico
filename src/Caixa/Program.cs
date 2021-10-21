@@ -12,7 +12,7 @@ namespace Caixa
         static void Main(string[] args)
         {
             var repo = new Repository();
-
+            var cliente = new Cliente() { Nome = "Josivaldo" };
             while (true)
             {
                 Console.Clear();
@@ -35,24 +35,37 @@ namespace Caixa
                     if (separacao.SeparacaoComSucesso)
                     {
                         var handler = new SetSaqueHandler(repo);
-                        var request = new SetSaqueRequest() { Saque = new Saque() { Valor = valor, Notas = separacao.Notas } };
-                        var response = handler.Handle(request);
+                        var request = new SetSaqueRequest() { Saque = new Saque() { Valor = valor, Notas = separacao.Notas, Cliente = cliente } };
+                        handler.Handle(request);
+
                         Console.Clear();
                         Console.WriteLine("Sua notas são:");
-                        foreach (var item in separacao.Notas.NotasCadastradas)
+                        foreach (var nota in separacao.Notas.NotasCadastradas)
                         {
-                            Console.WriteLine(item.Valor + " " + item.Quantidade);
+                            Console.WriteLine(nota.ToString());
 
                         }
-                        Console.ReadLine();
                     } else
                     {
+                        Console.Clear();
                         Console.WriteLine("Valor inválido.");
                     }
                 } else if (opcao == 2)
                 {
+                    var handler = new GetSaquesByClientIdHandler(repo);
+                    var request = new GetSaquesByClientIdRequest() {Id = cliente.Id };
+                    var response = handler.Handle(request);
+                    Console.Clear();
+                    Console.WriteLine("Extrato bancario:");
 
+                    foreach (var saque in response)
+                    {
+                        Console.WriteLine(saque.ToString());
+
+                    }
                 }
+                Console.ReadLine();
+
             }
         }
     }

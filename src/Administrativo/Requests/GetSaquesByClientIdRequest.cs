@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Administrativo.Requests
 {
-    public class GetSaquesByClienteIdRequest : Request
+    public class GetSaquesByClientIdRequest : Request
     {
         public Guid Id { get; set; }
     }
