@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Administrativo.Queries
 {
-    class SetSaqueHandler : QueryHandler<Saque, SetSaqueRequest>
+    public class SetSaqueHandler : QueryHandler<Saque, SetSaqueRequest>
     {
         private IRepository<Saque> _repository;
 

@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace Administrativo.Repositories
 {
-    class Repository : IRepository<Saque>
+    public class Repository : IRepository<Saque>
     {
-        private List<Saque> saques;
+        private List<Saque> saques = new List<Saque> { 
+            new Saque() {Valor = 500}
+        };
 
         public List<Saque> Extrato(Guid Id)
         {

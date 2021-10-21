@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Administrativo.Entities
 {
-    class Cliente : Entity
+    public class Cliente : Entity
     {
         public string Nome { get; set; }
         public CPF cpf { get; set; }

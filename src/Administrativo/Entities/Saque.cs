@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Administrativo.Entities
 {
-    class Saque : Entity
+    public class Saque : Entity
     {
         public int Valor { get; set; }
         // public Cliente Cliente { get; set; }
-        // public List<int> Notas { get; set; }
+        public List<int> Notas { get; set; }
     }
 }

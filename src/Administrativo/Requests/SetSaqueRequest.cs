@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Administrativo.Requests
 {
-    class SetSaqueRequest : Request
+    public class SetSaqueRequest : Request
     {
         public Saque Saque { get; set; }
     }
