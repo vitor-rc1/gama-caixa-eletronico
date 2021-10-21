@@ -1,4 +1,5 @@
-﻿using Shared.Entities;
+﻿using Administrativo.ValueObjects;
+using Shared.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,6 @@ namespace Administrativo.Entities
     {
         public int Valor { get; set; }
         // public Cliente Cliente { get; set; }
-        public List<int> Notas { get; set; }
+        public Notas Notas { get; set; }
     }
 }

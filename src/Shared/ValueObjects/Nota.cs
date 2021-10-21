@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Shared.ValueObjects
 {
-    public class CPF
+    public class Nota
     {
-        public string Valor { get; private set; }
+        public int Valor { get; set; }
+        public int Quantidade { get; set; }
     }
 }
