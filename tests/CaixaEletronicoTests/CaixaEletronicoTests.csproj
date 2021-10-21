@@ -19,4 +19,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Administrativo\Administrativo.csproj" />
+    <ProjectReference Include="..\..\src\Caixa\Caixa.csproj" />
+  </ItemGroup>
+
 </Project>

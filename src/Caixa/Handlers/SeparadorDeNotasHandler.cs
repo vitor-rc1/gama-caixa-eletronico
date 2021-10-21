@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Caixa.Handlers
 {
-    class SeparadorDeNotasHandler
+    public class SeparadorDeNotasHandler
     {
         public int Restante { get; private set; }
         public Notas Notas { get; set; }
