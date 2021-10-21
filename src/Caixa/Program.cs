@@ -11,22 +11,48 @@ namespace Caixa
     {
         static void Main(string[] args)
         {
-            //var repo = new Repository();
-            //var handler = new SetSaqueHandler(repo);
+            var repo = new Repository();
 
-            //var request = new SetSaqueRequest() { Saque = new Saque() { Valor = 200 } };
-
-            //var response = handler.Handle(request);
-
-            //Console.WriteLine(response.Id);
-
-            var notas = new SeparadorDeNotasHandler(321);
-
-            Console.WriteLine(notas.SeparacaoComSucesso);
-            foreach (var item in notas.Notas.NotasCadastradas)
+            while (true)
             {
-                Console.WriteLine(item.Valor + " " + item.Quantidade);
-                
+                Console.Clear();
+                Console.WriteLine("Digite a opção desejada");
+                Console.WriteLine("1 - Sacar");
+                Console.WriteLine("2 - Extrato");
+                Console.WriteLine("0 - Sair");
+
+                int opcao = Convert.ToInt32(Console.ReadLine());
+
+                if (opcao == 0)
+                {
+                    break;
+                } else if (opcao == 1)
+                {
+                    Console.WriteLine("Digite o Valor Desejado");
+                    int valor = Convert.ToInt32(Console.ReadLine());
+                    var separacao = new SeparadorDeNotasHandler(valor);
+
+                    if (separacao.SeparacaoComSucesso)
+                    {
+                        var handler = new SetSaqueHandler(repo);
+                        var request = new SetSaqueRequest() { Saque = new Saque() { Valor = valor, Notas = separacao.Notas } };
+                        var response = handler.Handle(request);
+                        Console.Clear();
+                        Console.WriteLine("Sua notas são:");
+                        foreach (var item in separacao.Notas.NotasCadastradas)
+                        {
+                            Console.WriteLine(item.Valor + " " + item.Quantidade);
+
+                        }
+                        Console.ReadLine();
+                    } else
+                    {
+                        Console.WriteLine("Valor inválido.");
+                    }
+                } else if (opcao == 2)
+                {
+
+                }
             }
         }
     }

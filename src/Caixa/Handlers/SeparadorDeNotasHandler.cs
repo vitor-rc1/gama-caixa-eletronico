@@ -35,11 +35,11 @@ namespace Caixa.Handlers
                 if (Restante == 0)
                 {
                     SeparacaoComSucesso = true;
+                    Notas = notas;
                     break;
                 }
             }
 
-            Notas = notas;
 
         }
 
