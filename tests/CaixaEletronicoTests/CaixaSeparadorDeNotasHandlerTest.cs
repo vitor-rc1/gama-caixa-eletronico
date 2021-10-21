@@ -7,7 +7,7 @@ using Xunit;
 
 namespace CaixaEletronicoTests
 {
-    public class UnitTest1
+    public class CaixaSeparadorDeNotasHandlerTest
     {
         [Fact]
         public void DadoUmValorValidoSacaComSucesso()
